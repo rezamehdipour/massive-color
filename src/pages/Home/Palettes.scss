@@ -1,0 +1,58 @@
+.Home {
+	.palettes {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.5rem;
+	}
+
+	.palette {
+		display: block;
+		position: relative;
+		background-color: white;
+		padding: 1rem;
+		border-radius: 6px;
+		cursor: pointer;
+		&:hover {
+			.delete {
+				opacity: 1;
+			}
+		}
+
+		.delete {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			color: white;
+			background-color: #dc2626;
+			padding: 0.5rem 1rem;
+			border-top-right-radius: 6px;
+			transition-duration: 0.2s;
+			opacity: 0;
+		}
+
+		.link {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+
+			.colors {
+				display: grid;
+				grid-template-columns: repeat(5, 1fr);
+				grid-auto-rows: 40px;
+				margin-bottom: 1rem;
+			}
+
+			.info {
+				flex-basis: 100%;
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-between;
+
+				.name {
+					font-size: 2rem;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}

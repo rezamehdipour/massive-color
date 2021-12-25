@@ -1,0 +1,20 @@
+.Home {
+	header {
+		padding: 3rem 0rem;
+
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: white;
+		}
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}

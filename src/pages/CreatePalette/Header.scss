@@ -1,0 +1,44 @@
+.CreatePalette {
+	header {
+		background-color: #f2f2f2;
+		padding: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.left {
+			display: flex;
+			align-items: center;
+			column-gap: 3rem;
+			.openSidebar {
+				font-size: 2rem;
+				svg {
+					display: block;
+				}
+			}
+			.title {
+				font-weight: 600;
+			}
+		}
+
+		.buttons {
+			display: flex;
+			column-gap: 0.5rem;
+			color: white;
+			button {
+				padding: 0.5rem 1rem;
+				border-radius: 6px;
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
+			}
+			.back {
+				background-color: var(--red);
+			}
+			.save {
+				background-color: var(--blue);
+			}
+		}
+	}
+}

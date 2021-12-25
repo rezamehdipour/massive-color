@@ -1,0 +1,56 @@
+.Palette {
+	header {
+		display: flex;
+		.brand {
+			display: block;
+			background-color: #eaedee;
+			padding: 1rem;
+			font-size: 2rem;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+		}
+
+		.options {
+			flex-grow: 1;
+			background-color: white;
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.range {
+				display: flex;
+				align-items: center;
+				width: 270px;
+
+				label {
+					white-space: nowrap;
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+
+	.colors {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-auto-rows: 200px;
+	}
+
+	footer {
+		padding: 1.5rem;
+		h6 {
+			font-size: 2rem;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			.paletteName {
+				margin-right: 1rem;
+			}
+			.emoji {
+			}
+		}
+	}
+}

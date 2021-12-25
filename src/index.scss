@@ -1,0 +1,96 @@
+// ————— Mixin(s) - [Mobile First] - [Based on Bootstrap] —————
+@mixin xsmall {
+	@media (max-width: 575px) {
+		@content;
+	}
+}
+@mixin small {
+	@media (min-width: 576px) /* and (max-width: 767px) */ {
+		@content;
+	}
+}
+@mixin medium {
+	@media (min-width: 768px) /* and (max-width: 991px) */ {
+		@content;
+	}
+}
+@mixin large {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+@mixin xlarge {
+	@media (min-width: 1140px) {
+		@content;
+	}
+}
+@mixin xxlarge {
+	@media (min-width: 1320px) {
+		@content;
+	}
+}
+
+// ————— Container —————
+.container {
+	width: calc(100% - 24px);
+
+	@include small() {
+		width: 540px;
+	}
+
+	@include medium() {
+		width: 720px;
+	}
+
+	@include large() {
+		width: 960px;
+	}
+
+	@include xlarge() {
+		width: 1140px;
+	}
+
+	// @include xxlarge() {
+	// 	width: 1320px;
+	// }
+}
+
+// ————— Actual CSS —————
+:root {
+	--font-family: "Poppins", sans-serif;
+
+	--text-primary: #0f172a;
+}
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+	font-family: var(--font-family);
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+
+	font-size: 1.6rem;
+
+	color: var(--text-primary);
+
+	overflow-x: hidden;
+}
+
+img {
+	display: block;
+}
+
+a {
+	display: inline-block;
+}

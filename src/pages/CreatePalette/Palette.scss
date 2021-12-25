@@ -1,0 +1,43 @@
+.CreatePalette {
+	.addSomeColors {
+		font-size: 2rem;
+		padding-top: 2rem;
+		padding-left: 2rem;
+		opacity: 0.3;
+	}
+	.palette {
+		flex-basis: 100%;
+
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+
+		.color {
+			position: relative;
+			cursor: grab;
+
+			.name {
+				position: absolute;
+				left: 5px;
+				bottom: 3px;
+				font-size: 1.6rem;
+				font-weight: normal;
+				text-transform: uppercase;
+			}
+			.delete {
+				position: absolute;
+				right: 5px;
+				bottom: 5px;
+				font-size: 22px;
+				transition-duration: 0.2s;
+				&:hover {
+					transform: scale(1.2) rotate(-10deg);
+				}
+
+				svg {
+					display: block;
+				}
+			}
+		}
+	}
+}
