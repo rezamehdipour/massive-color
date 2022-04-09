@@ -2,61 +2,60 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { addPalette } from "../../redux/palettes/palettesSlice";
-import { setName, clear } from '../../redux/newPalette/newPalette';
+import { setName, clear } from "../../redux/newPalette/newPalette";
 
 // Emoji Picker
-import { Picker as EmojiPicker } from 'emoji-mart';
+import { Picker as EmojiPicker } from "emoji-mart";
 
 // Toast
 import { toast } from "react-toastify";
 
 // MUI
 import Button from "@mui/material/Button";
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 // MUI Icon
 import IconButton from "@mui/material/IconButton";
-import AddBoxIcon from "@mui/icons-material/AddBox";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 // CSS
 import "./Header.scss";
-import 'emoji-mart/css/emoji-mart.css'
+import "emoji-mart/css/emoji-mart.css";
 
 toast.configure();
 const Header = ({ handleToggleSidebar, sidebar }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const newPalette = useSelector(s => s.newPalette);
-	const palettes = useSelector(s => s.palettes);
-	const [newPaletteName, setNewPaletteName] = useState('');
+	const newPalette = useSelector((s) => s.newPalette);
+	const palettes = useSelector((s) => s.palettes);
+	const [newPaletteName, setNewPaletteName] = useState("");
 	const [enterPaletteNameDialog, setEnterPaletteNameDialog] = useState(false);
 	const handleOpenEnterPaletteNameDialog = () => setEnterPaletteNameDialog(true);
 	const handleCloseEnterPaletteNameDialog = () => setEnterPaletteNameDialog(false);
 	const handleLetsSelectEmojiForPalette = () => {
 		if (newPaletteName.length > 0) {
-			if (palettes.find(p => p.paletteName === newPaletteName) === undefined) {
+			if (palettes.find((p) => p.paletteName === newPaletteName) === undefined) {
 				dispatch(setName(newPaletteName));
 				handleOpenSelectEmojiDialog(); // Open Select Palette Emoji Dialog
 				handleCloseEnterPaletteNameDialog(); // Close the Enter Palette Name Dialog
 			} else {
-				toast.error('Name is not unique!', {
+				toast.error("Name is not unique!", {
 					position: toast.POSITION.BOTTOM_LEFT,
 					autoClose: 3000,
 				});
 			}
 		} else {
-			toast.error('Enter a valid name', {
+			toast.error("Enter a valid name", {
 				position: toast.POSITION.BOTTOM_LEFT,
 				autoClose: 3000,
 			});
 		}
-	}
+	};
 	const [selectEmojiDialog, setSelectEmojiDialog] = useState(false);
 	const handleOpenSelectEmojiDialog = () => setSelectEmojiDialog(true);
 	const handleCloseSelectEmojiDialog = () => setSelectEmojiDialog(false);
@@ -66,8 +65,8 @@ const Header = ({ handleToggleSidebar, sidebar }) => {
 		newPaletteCopy.id = newPaletteName.replace(/(\s+)/g, "-").toLocaleLowerCase();
 		dispatch(addPalette(newPaletteCopy));
 		dispatch(clear());
-		navigate('/');
-		toast.success('Palette Successfully Added!', {
+		navigate("/");
+		toast.success("Palette Successfully Added!", {
 			position: toast.POSITION.BOTTOM_LEFT,
 			autoClose: 3000,
 		});
@@ -98,9 +97,13 @@ const Header = ({ handleToggleSidebar, sidebar }) => {
 				</button>
 			</div>
 
-			<Dialog open={enterPaletteNameDialog} onClose={handleCloseEnterPaletteNameDialog} style={{ fontSize: '16px' }}>
+			<Dialog
+				open={enterPaletteNameDialog}
+				onClose={handleCloseEnterPaletteNameDialog}
+				style={{ fontSize: "16px" }}
+			>
 				<DialogTitle fontSize="inherit">Enter name of palette</DialogTitle>
-				<DialogContent fontSize="inherit" >
+				<DialogContent fontSize="inherit">
 					<TextField
 						autoFocus
 						margin="dense"
@@ -116,7 +119,10 @@ const Header = ({ handleToggleSidebar, sidebar }) => {
 					<Button onClick={handleCloseEnterPaletteNameDialog}>Cancel</Button>
 					<Button
 						onClick={handleLetsSelectEmojiForPalette}
-						disabled={newPaletteName.length > 0 ? false : true}>Next</Button>
+						disabled={newPaletteName.length > 0 ? false : true}
+					>
+						Next
+					</Button>
 				</DialogActions>
 			</Dialog>
 
