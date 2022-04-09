@@ -11,8 +11,9 @@
 # production
 /build
 
-# zip
+# compressed
 *.zip
+*.rar
 
 # misc
 .DS_Store

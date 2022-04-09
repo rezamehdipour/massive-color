@@ -16,7 +16,7 @@ import "./index.scss";
 
 ReactDOM.render(
 	<ReduxProvider store={store}>
-		<BrowserRouter>
+		<BrowserRouter basename="/massive-color">
 			<App />
 		</BrowserRouter>
 	</ReduxProvider>,

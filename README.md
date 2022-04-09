@@ -1,8 +1,7 @@
 # Massive Color
 
-Create Color Palettes Easly!
+Create Your Color Palettes Easly!
+
 React 17, Hooks, Redux, Drag & Drop, Scss.
 
-## Preview
-
-![preview](preview.png)
+![preview](preview.jpg)
